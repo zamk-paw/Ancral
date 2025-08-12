@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    container_name: ancral-app
+    environment:
+      APP_ADMIN_EMAIL: ${APP_ADMIN_EMAIL:-admin@example.com}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-changeMeNow!}
+      APP_SECRET: ${APP_SECRET:-devsecret-change-me}
+      CDN_BASE_URL: ${CDN_BASE_URL:-http://localhost:8080/cdn/}
+      MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-104857600}
+      TZ: ${TZ:-Europe/Paris}
+    volumes:
+      - app-data:/var/www/data
+      - ./share:/var/www/cdn-public:rw
+      - ./db:/var/www/data
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+volumes:
+  app-data:
