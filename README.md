@@ -30,7 +30,7 @@ sudo chmod -R 775 /share
 
 # 2) Variables d’environnement (optionnel)
 cp .env.example .env
-# éditer .env pour définir l’admin et un APP_SECRET fort (openssl rand -hex 32)
+# éditer .env pour définir l’admin et un APP_SECRET fort (openssl rand -hex 64)
 
 # 3) Build & run
 docker compose up -d --build
@@ -81,7 +81,7 @@ public/
 | -------------------- | ------------------------------------------------- | ---------------------------- |
 | `APP_ADMIN_EMAIL`    | Email admin (seed au 1er démarrage)               | `admin@example.com`          |
 | `APP_ADMIN_PASSWORD` | Mot de passe admin (seed au 1er démarrage)        | `changeMeNow!`               |
-| `APP_SECRET`         | Secret sessions/CSRF (ex. `openssl rand -hex 32`) | `devsecret-change-me`        |
+| `APP_SECRET`         | Secret sessions/CSRF (ex. `openssl rand -hex 64`) | `devsecret-change-me`        |
 | `CDN_BASE_URL`       | Base publique pour générer les liens              | `http://localhost:8080/cdn/` |
 | `MAX_UPLOAD_BYTES`   | Taille max d’upload (octets)                      | `104857600` (100 Mo)         |
 | `TZ`                 | Fuseau horaire du conteneur                       | `Europe/Paris`               |
