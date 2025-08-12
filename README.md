@@ -39,9 +39,6 @@ docker compose up -d --build
 # App :  http://localhost:8080/
 # CDN :  http://localhost:8080/cdn/<nom-de-fichier>
 ```
-
-> Astuce dev : utiliser `docker-compose.override.yml` pour **monter le code en bind-mount** (hot-reload) et garder les données séparées.
-
 ---
 
 ## Fonctionnalités
